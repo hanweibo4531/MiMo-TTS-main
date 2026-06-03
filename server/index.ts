@@ -1,6 +1,8 @@
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
+import { readFile, writeFile } from "node:fs/promises";
+import path from "node:path";
 import {
   BUILTIN_VOICES,
   MIMO_BASE_URL_DEFAULT,
@@ -30,6 +32,46 @@ app.get("/api/status", (_req, res) => {
     models: MODEL_OPTIONS,
     voices: BUILTIN_VOICES
   });
+});
+
+app.post("/api/config", async (req, res) => {
+  try {
+    const apiKey = typeof req.body.apiKey === "string" ? req.body.apiKey.trim() : "";
+    const baseUrl = typeof req.body.baseUrl === "string" ? req.body.baseUrl.trim() : "";
+
+    if (!apiKey && !getApiKey()) {
+      throw new TtsValidationError("请填写 API Key。", "MIMO_API_KEY_REQUIRED");
+    }
+
+    if (baseUrl) {
+      try {
+        new URL(baseUrl);
+      } catch {
+        throw new TtsValidationError("Base URL 格式不正确。", "MIMO_BASE_URL_INVALID");
+      }
+    }
+
+    if (apiKey) {
+      process.env.MIMO_API_KEY = apiKey;
+    }
+    const nextBaseUrl = baseUrl || MIMO_BASE_URL_DEFAULT;
+    process.env.MIMO_BASE_URL = nextBaseUrl;
+
+    await saveEnvConfig({
+      ...(apiKey ? { MIMO_API_KEY: apiKey } : {}),
+      MIMO_BASE_URL: nextBaseUrl,
+      PORT: String(port)
+    });
+
+    res.json({
+      configured: Boolean(getApiKey()),
+      baseUrl: getBaseUrl(),
+      models: MODEL_OPTIONS,
+      voices: BUILTIN_VOICES
+    });
+  } catch (error) {
+    sendAppError(res, error);
+  }
 });
 
 app.post("/api/tts", async (req, res) => {
@@ -155,4 +197,35 @@ function getApiKey(): string | undefined {
 
 function getBaseUrl(): string {
   return (process.env.MIMO_BASE_URL?.trim() || MIMO_BASE_URL_DEFAULT).replace(/\/$/, "");
+}
+
+async function saveEnvConfig(values: Record<string, string>) {
+  const envPath = path.join(process.cwd(), ".env");
+  const existing = await readEnvFile(envPath);
+  const lines = existing ? existing.split(/\r?\n/) : [];
+  const pending = new Map(Object.entries(values));
+  const nextLines = lines.map((line) => {
+    const match = /^([A-Za-z_][A-Za-z0-9_]*)=/.exec(line);
+    if (!match || !pending.has(match[1])) {
+      return line;
+    }
+
+    const value = pending.get(match[1]) ?? "";
+    pending.delete(match[1]);
+    return `${match[1]}=${value}`;
+  });
+
+  for (const [key, value] of pending) {
+    nextLines.push(`${key}=${value}`);
+  }
+
+  await writeFile(envPath, `${nextLines.filter((line, index) => line || index < nextLines.length - 1).join("\n")}\n`, "utf8");
+}
+
+async function readEnvFile(envPath: string): Promise<string> {
+  try {
+    return await readFile(envPath, "utf8");
+  } catch {
+    return "";
+  }
 }

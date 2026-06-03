@@ -165,6 +165,34 @@ h2 {
   margin-bottom: 8px;
 }
 
+.apiConfigPanel {
+  background: #f8fbff;
+  border: 1px solid #dbe8f6;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.stackedLabel {
+  margin-top: 12px;
+}
+
+.configSaveButton {
+  margin-top: 12px;
+  width: 100%;
+}
+
+.configSaveButton:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.successHint {
+  color: #167a50;
+  font-size: 12px;
+  font-weight: 800;
+  margin: 8px 0 0;
+}
+
 .segmented {
   background: #eef3f8;
   border: 1px solid #d8e3ee;

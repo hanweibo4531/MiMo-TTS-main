@@ -214,6 +214,10 @@ export function App() {
   const [editingCloneRecordingId, setEditingCloneRecordingId] = useState("");
   const [editingCloneRecordingName, setEditingCloneRecordingName] = useState("");
   const [recordingName, setRecordingName] = useState("我的克隆音色");
+  const [apiKeyInput, setApiKeyInput] = useState("");
+  const [baseUrlInput, setBaseUrlInput] = useState("");
+  const [isSavingConfig, setIsSavingConfig] = useState(false);
+  const [configMessage, setConfigMessage] = useState("");
   const [readingText, setReadingText] = useState(readingPrompts[0]);
   const [isRecording, setIsRecording] = useState(false);
   const [recordingLevel, setRecordingLevel] = useState(0);
@@ -230,7 +234,10 @@ export function App() {
   useEffect(() => {
     fetch("/api/status")
       .then((response) => response.json())
-      .then(setStatus)
+      .then((nextStatus: ApiStatus) => {
+        setStatus(nextStatus);
+        setBaseUrlInput(nextStatus.baseUrl);
+      })
       .catch(() => setError("无法连接本地代理，请确认后端服务已启动。"));
   }, []);
 
@@ -289,6 +296,42 @@ export function App() {
     }
     return JSON.stringify(result.requestPreview, null, 2);
   }, [result]);
+
+  async function saveApiConfig() {
+    setError("");
+    setConfigMessage("");
+    if (!apiKeyInput.trim() && !status.configured) {
+      setError("请先填写 API Key。");
+      return;
+    }
+
+    setIsSavingConfig(true);
+    try {
+      const response = await fetch("/api/config", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          apiKey: apiKeyInput.trim() || undefined,
+          baseUrl: baseUrlInput.trim()
+        })
+      });
+      const payload = await response.json();
+      if (!response.ok) {
+        throw new Error(payload.error || "保存 API 配置失败。");
+      }
+
+      setStatus(payload);
+      setBaseUrlInput(payload.baseUrl);
+      setApiKeyInput("");
+      setConfigMessage("API 配置已保存。");
+    } catch (configError) {
+      setError(configError instanceof Error ? configError.message : "保存 API 配置失败。");
+    } finally {
+      setIsSavingConfig(false);
+    }
+  }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -544,6 +587,41 @@ export function App() {
 
       <form className="workspace" onSubmit={handleSubmit}>
         <aside className="panel configPanel">
+          <section className="apiConfigPanel">
+            <div className="sectionTitle">
+              <Sparkles size={18} />
+              <h2>API 配置</h2>
+            </div>
+            <label className="fieldLabel" htmlFor="apiKeyInput">
+              API Key
+            </label>
+            <input
+              className="inlineInput"
+              id="apiKeyInput"
+              type="password"
+              value={apiKeyInput}
+              onChange={(event) => setApiKeyInput(event.target.value)}
+              placeholder={status.configured ? "已配置，留空不修改" : "粘贴你的 MiMo API Key"}
+              autoComplete="off"
+            />
+            <label className="fieldLabel stackedLabel" htmlFor="baseUrlInput">
+              Base URL
+            </label>
+            <input
+              className="inlineInput"
+              id="baseUrlInput"
+              value={baseUrlInput}
+              onChange={(event) => setBaseUrlInput(event.target.value)}
+              placeholder="https://token-plan-cn.xiaomimimo.com/v1"
+            />
+            <button className="secondaryButton configSaveButton" type="button" disabled={isSavingConfig} onClick={saveApiConfig}>
+              {isSavingConfig ? <Loader2 className="spin" size={16} /> : <CheckCircle2 size={16} />}
+              保存配置
+            </button>
+            {configMessage && <p className="successHint">{configMessage}</p>}
+            <p className="fieldHint">Key 只写入本地 `.env`，前端不会显示已保存的完整 Key。</p>
+          </section>
+
           <section>
             <div className="sectionTitle">
               <Mic2 size={18} />
