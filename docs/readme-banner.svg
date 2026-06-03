@@ -1,0 +1,129 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Xiaomi MiMo V2.5 TTS Web preview banner">
+  <defs>
+    <linearGradient id="bg" x1="80" y1="0" x2="1520" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#06111F" />
+      <stop offset="0.52" stop-color="#0B1A2F" />
+      <stop offset="1" stop-color="#111A2E" />
+    </linearGradient>
+    <linearGradient id="panel" x1="100" y1="120" x2="1500" y2="820" gradientUnits="userSpaceOnUse">
+      <stop stop-color="rgba(255,255,255,0.14)" />
+      <stop offset="1" stop-color="rgba(255,255,255,0.06)" />
+    </linearGradient>
+    <linearGradient id="accent" x1="100" y1="100" x2="300" y2="260" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#67E8F9" />
+      <stop offset="1" stop-color="#A78BFA" />
+    </linearGradient>
+    <linearGradient id="accentSoft" x1="0" y1="0" x2="0" y2="1" gradientUnits="userSpaceOnUse">
+      <stop stop-color="rgba(103,232,249,0.22)" />
+      <stop offset="1" stop-color="rgba(103,232,249,0.08)" />
+    </linearGradient>
+    <linearGradient id="buttonFill" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox">
+      <stop stop-color="#67E8F9" />
+      <stop offset="0.5" stop-color="#38BDF8" />
+      <stop offset="1" stop-color="#A78BFA" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="20" stdDeviation="28" flood-color="#020617" flood-opacity="0.48" />
+    </filter>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)" />
+  <rect width="1600" height="900" fill="url(#grid)" opacity="0.8" />
+  <rect x="56" y="56" width="1488" height="788" rx="30" fill="rgba(8,15,27,0.72)" stroke="rgba(148,163,184,0.16)" filter="url(#shadow)" />
+
+  <circle cx="123" cy="130" r="26" fill="url(#accent)" />
+  <text x="123" y="139" text-anchor="middle" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="28" font-weight="800" fill="#04111C">M</text>
+
+  <text x="172" y="132" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="56" font-weight="800" fill="#F8FAFC">Xiaomi MiMo V2.5 TTS Web</text>
+  <text x="172" y="184" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="25" font-weight="600" fill="#CBD5E1">Unofficial local workbench for Xiaomi MiMo V2.5 TTS</text>
+  <text x="172" y="224" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="18" font-weight="400" fill="#94A3B8">Proxy-first architecture, browser-local sample storage, and a single-screen generation workflow.</text>
+
+  <g font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" fill="#E2E8F0">
+    <rect x="172" y="258" width="126" height="36" rx="18" fill="rgba(103,232,249,0.12)" stroke="rgba(103,232,249,0.28)" />
+    <text x="235" y="282" text-anchor="middle">Proxy only</text>
+
+    <rect x="310" y="258" width="140" height="36" rx="18" fill="rgba(167,139,250,0.12)" stroke="rgba(167,139,250,0.28)" />
+    <text x="380" y="282" text-anchor="middle">VoiceDesign</text>
+
+    <rect x="462" y="258" width="128" height="36" rx="18" fill="rgba(56,189,248,0.12)" stroke="rgba(56,189,248,0.28)" />
+    <text x="526" y="282" text-anchor="middle">VoiceClone</text>
+
+    <rect x="602" y="258" width="168" height="36" rx="18" fill="rgba(134,239,172,0.10)" stroke="rgba(134,239,172,0.24)" />
+    <text x="686" y="282" text-anchor="middle">Local IndexedDB</text>
+  </g>
+
+  <rect x="100" y="336" width="1400" height="430" rx="26" fill="rgba(255,255,255,0.04)" stroke="rgba(148,163,184,0.18)" />
+
+  <rect x="128" y="370" width="304" height="362" rx="22" fill="rgba(255,255,255,0.06)" stroke="rgba(148,163,184,0.16)" />
+  <text x="160" y="412" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="24" font-weight="700" fill="#F8FAFC">模型 / 输出</text>
+  <rect x="158" y="440" width="244" height="48" rx="14" fill="rgba(255,255,255,0.92)" />
+  <text x="178" y="471" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#1E293B">内置音色</text>
+  <rect x="158" y="502" width="244" height="48" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)" />
+  <text x="178" y="533" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#CBD5E1">VoiceDesign</text>
+  <rect x="158" y="564" width="244" height="48" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)" />
+  <text x="178" y="595" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#CBD5E1">VoiceClone</text>
+  <rect x="158" y="632" width="244" height="72" rx="16" fill="rgba(103,232,249,0.08)" stroke="rgba(103,232,249,0.18)" />
+  <text x="178" y="664" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="15" font-weight="600" fill="#94A3B8">WAV / stream-compatible</text>
+  <text x="178" y="690" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#E2E8F0">Frontend never sees the key</text>
+
+  <rect x="454" y="370" width="662" height="362" rx="22" fill="rgba(255,255,255,0.06)" stroke="rgba(148,163,184,0.16)" />
+  <text x="486" y="412" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="24" font-weight="700" fill="#F8FAFC">自然语言控制 / 音频标签控制</text>
+  <rect x="486" y="438" width="598" height="86" rx="18" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.10)" />
+  <text x="508" y="471" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="18" font-weight="600" fill="#CBD5E1">场景、情绪、音色、语速和导演模板自动拼装为请求内容</text>
+  <text x="508" y="500" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="18" font-weight="600" fill="#CBD5E1">用户只需要选参数，再填文本，最后点击生成</text>
+
+  <g>
+    <rect x="486" y="548" width="88" height="38" rx="19" fill="rgba(103,232,249,0.12)" stroke="rgba(103,232,249,0.24)" />
+    <rect x="582" y="548" width="88" height="38" rx="19" fill="rgba(103,232,249,0.12)" stroke="rgba(103,232,249,0.24)" />
+    <rect x="678" y="548" width="88" height="38" rx="19" fill="rgba(103,232,249,0.12)" stroke="rgba(103,232,249,0.24)" />
+    <rect x="774" y="548" width="88" height="38" rx="19" fill="rgba(103,232,249,0.12)" stroke="rgba(103,232,249,0.24)" />
+    <rect x="870" y="548" width="88" height="38" rx="19" fill="rgba(103,232,249,0.12)" stroke="rgba(103,232,249,0.24)" />
+    <rect x="966" y="548" width="88" height="38" rx="19" fill="rgba(103,232,249,0.12)" stroke="rgba(103,232,249,0.24)" />
+    <text x="530" y="573" text-anchor="middle" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" fill="#E0FBFF">旁白</text>
+    <text x="626" y="573" text-anchor="middle" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" fill="#E0FBFF">平静</text>
+    <text x="722" y="573" text-anchor="middle" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" fill="#E0FBFF">明亮</text>
+    <text x="818" y="573" text-anchor="middle" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" fill="#E0FBFF">自然</text>
+    <text x="914" y="573" text-anchor="middle" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" fill="#E0FBFF">温柔</text>
+    <text x="1010" y="573" text-anchor="middle" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" fill="#E0FBFF">播报</text>
+  </g>
+
+  <rect x="486" y="606" width="598" height="108" rx="18" fill="rgba(8,15,27,0.72)" stroke="rgba(103,232,249,0.18)" />
+  <text x="508" y="646" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="17" font-weight="600" fill="#E2E8F0">今天的天气很好，窗外有微风，街道也显得格外安静。</text>
+  <text x="508" y="674" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="17" font-weight="600" fill="#E2E8F0">我想把这份轻松和愉快分享给你，然后用自然、平稳的语速读清楚。</text>
+  <g fill="#67E8F9" opacity="0.92">
+    <rect x="508" y="688" width="14" height="20" rx="7" />
+    <rect x="532" y="676" width="14" height="32" rx="7" />
+    <rect x="556" y="684" width="14" height="24" rx="7" />
+    <rect x="580" y="664" width="14" height="44" rx="7" />
+    <rect x="604" y="672" width="14" height="36" rx="7" />
+    <rect x="628" y="680" width="14" height="28" rx="7" />
+    <rect x="652" y="670" width="14" height="38" rx="7" />
+    <rect x="676" y="658" width="14" height="50" rx="7" />
+    <rect x="700" y="676" width="14" height="32" rx="7" />
+    <rect x="724" y="684" width="14" height="24" rx="7" />
+    <rect x="748" y="666" width="14" height="42" rx="7" />
+    <rect x="772" y="674" width="14" height="34" rx="7" />
+    <rect x="796" y="660" width="14" height="48" rx="7" />
+    <rect x="820" y="678" width="14" height="30" rx="7" />
+    <rect x="844" y="686" width="14" height="22" rx="7" />
+    <rect x="868" y="670" width="14" height="38" rx="7" />
+    <rect x="892" y="662" width="14" height="46" rx="7" />
+    <rect x="916" y="676" width="14" height="32" rx="7" />
+    <rect x="940" y="684" width="14" height="24" rx="7" />
+  </g>
+
+  <rect x="1138" y="370" width="334" height="362" rx="22" fill="rgba(255,255,255,0.06)" stroke="rgba(148,163,184,0.16)" />
+  <text x="1170" y="412" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="24" font-weight="700" fill="#F8FAFC">结果 / 请求预览</text>
+  <rect x="1170" y="440" width="270" height="124" rx="20" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.10)" />
+  <text x="1305" y="510" text-anchor="middle" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="22" font-weight="600" fill="#94A3B8">等待生成</text>
+  <rect x="1170" y="584" width="270" height="82" rx="18" fill="rgba(8,15,27,0.90)" stroke="rgba(103,232,249,0.16)" />
+  <text x="1192" y="627" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="17" font-weight="600" fill="#E2E8F0">生成后显示请求预览</text>
+  <rect x="1170" y="684" width="126" height="40" rx="20" fill="url(#buttonFill)" />
+  <text x="1233" y="710" text-anchor="middle" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="16" font-weight="800" fill="#04111C">下载 WAV</text>
+
+  <rect x="112" y="780" width="1376" height="1" fill="rgba(148,163,184,0.16)" />
+  <text x="112" y="820" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="15" font-weight="600" fill="#94A3B8">API Key stays in .env · browser never sees it · local samples stay on this machine</text>
+</svg>

@@ -1,0 +1,2 @@
+
+02d91531426eefb4184eb5048dfe674850e9fa3f	{"key":"make-fetch-happen:request-cache:http://registry.npm.taobao.org/npm","integrity":null,"time":1780445926093,"size":"262","metadata":{"time":1780445926093,"url":"http://registry.npm.taobao.org/npm","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Wed, 03 Jun 2026 00:18:47 GMT","location":"https://registry.npmmirror.com/npm"},"options":{"compress":true},"status":301}}
